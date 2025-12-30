@@ -1,0 +1,204 @@
+/* ================= ROOT & GLOBAL ================= */
+body {
+  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+  color: #ecf0f1;
+}
+
+.app-container,
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================= TITLE ================= */
+.neon-title,
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00eaff;
+  text-shadow: 0 0 12px rgba(0, 234, 255, 0.7);
+  margin-bottom: 25px;
+}
+
+/* ================= GLASS CARD ================= */
+.glass-card,
+.cv-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.15);
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ================= BASIC INFO ================= */
+.basic-info,
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.basic-info div,
+.info-row p {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 12px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 234, 255, 0.2);
+}
+
+/* ================= GRID LAYOUT ================= */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* ================= CARD SECTIONS ================= */
+.card-section,
+.section {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 18px;
+  border-radius: 14px;
+  border-left: 4px solid #00eaff;
+}
+
+.card-section h3,
+.section h3 {
+  color: #00eaff;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section ul,
+.card-section ul {
+  padding-left: 18px;
+}
+
+.section li,
+.card-section li {
+  margin-bottom: 6px;
+}
+
+/* ================= TAG STYLE SKILLS ================= */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.tag-list li {
+  background: rgba(0, 234, 255, 0.15);
+  border: 1px solid #00eaff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* ================= HIGHLIGHT SECTIONS ================= */
+.analysis-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.highlight {
+  padding: 18px;
+  border-radius: 14px;
+  font-weight: 500;
+}
+
+.highlight.success {
+  background: rgba(0, 255, 128, 0.15);
+  border: 1px solid #00ff80;
+  color: #00ff80;
+}
+
+.highlight.warning {
+  background: rgba(255, 165, 0, 0.15);
+  border: 1px solid #ffa500;
+  color: #ffa500;
+}
+
+.highlight h3 {
+  margin-bottom: 8px;
+}
+
+/* ================= BUTTONS ================= */
+.btn,
+.neon-btn {
+  background: linear-gradient(135deg, #00eaff, #0066ff);
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.6);
+}
+
+.btn:hover,
+.neon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.9);
+}
+
+/* ================= SCORES ================= */
+.score,
+.neon-text {
+  font-size: 1.2rem;
+  margin-top: 12px;
+  color: #00ffea;
+  text-shadow: 0 0 8px rgba(0, 255, 234, 0.6);
+}
+
+/* ================= JD SECTION ================= */
+.jd-section,
+.jd-box {
+  margin-top: 25px;
+}
+
+.jd-section textarea,
+.jd-box textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 234, 255, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+.jd-section textarea::placeholder,
+.jd-box textarea::placeholder {
+  color: #aaa;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .analysis-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .basic-info,
+  .info-row {
+    flex-direction: column;
+  }
+}
