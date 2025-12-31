@@ -24,16 +24,16 @@ The **CV ATS System** is a web-based application designed to help job seekers, r
 ## Screenshots
 
 ### Upload CV Interface
-![Upload CV Screenshot](.\backend\uploads\cv\images\1.png)
+![Upload CV Screenshot](backend/uploads/cv/images/1.png)
 
 ### Parsed CV Data 
-![Parsed CV Screenshot](.\backend\uploads\cv\images\2.png)
+![Parsed CV Screenshot](backend/uploads/cv/images/2.png)
 
 ### Skills and Certification Match
-![JD Match Screenshot](.\backend\uploads\cv\images\3.png)
+![JD Match Screenshot](backend/uploads/cv/images/3.png)
 
 ### ATS Score and Job Description Match
-![JD Match Screenshot](.\backend\uploads\cv\images\4.png)
+![JD Match Screenshot](backend/uploads/cv/images/4.png)
 
 ---
 
@@ -64,35 +64,32 @@ cd cv-ats-system
 
 ---
 
-### 1. Clone the Repository
-git clone https://github.com/Sandeep992299/cv-ats-system.git
-cd cv-ats-system
-
-text
-
 ### 2. Install Dependencies
 Backend
+```bash
 cd backend
 npm install
 
 Frontend
+```bash
 cd ../frontend
 npm install
 
-text
+---
 
 ### 3. Start Backend
+```bash
 cd backend
 node server.js
 
-text
 Backend runs on http://localhost:5000
+---
 
 ### 4. Start Frontend
+```bash
 cd frontend
 npm start
-
-text
+---
 Frontend runs on http://localhost:3000
 
 ## Usage
