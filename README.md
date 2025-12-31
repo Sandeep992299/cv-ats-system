@@ -1,9 +1,15 @@
 # CV ATS System
 
+![Node.js](https://img.shields.io/badge/Node.js-v16+-green)
+![React](https://img.shields.io/badge/React-v18-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+---
+
 ## Overview
 The **CV ATS System** is a web-based application designed to help job seekers, recruiters, and HR professionals optimize CVs for Applicant Tracking Systems (ATS).  
 
-**Key features:**
+**Key Features:**
 - Upload CVs in **PDF** or **DOCX** format
 - Extract **Education, Experience, Skills, Projects, Certifications**
 - Calculate an **ATS Score**
@@ -17,16 +23,17 @@ The **CV ATS System** is a web-based application designed to help job seekers, r
 
 ## Screenshots
 
-### 1. Upload CV Interface
-![Upload CV Screenshot](./screenshots/upload-cv.png)
+### Upload CV Interface
+![Upload CV Screenshot](.\backend\uploads\cv\images\1.png)
 
-### 2. Parsed CV Data & ATS Score
-![Parsed CV Screenshot](./screenshots/parsed-cv.png)
+### Parsed CV Data 
+![Parsed CV Screenshot](.\backend\uploads\cv\images\2.png)
 
-### 3. Job Description Match
-![JD Match Screenshot](./screenshots/jd-match.png)
+### Skills and Certification Match
+![JD Match Screenshot](.\backend\uploads\cv\images\3.png)
 
-> Save your screenshots in a `screenshots/` folder at the root of the project.
+### ATS Score and Job Description Match
+![JD Match Screenshot](.\backend\uploads\cv\images\4.png)
 
 ---
 
@@ -55,164 +62,144 @@ The **CV ATS System** is a web-based application designed to help job seekers, r
 git clone https://github.com/Sandeep992299/cv-ats-system.git
 cd cv-ats-system
 
-2. Install Dependencies
-# Backend
+---
+
+### 1. Clone the Repository
+git clone https://github.com/Sandeep992299/cv-ats-system.git
+cd cv-ats-system
+
+text
+
+### 2. Install Dependencies
+Backend
 cd backend
 npm install
 
-# Frontend
+Frontend
 cd ../frontend
 npm install
 
-3. Start Backend
+text
+
+### 3. Start Backend
 cd backend
 node server.js
 
-
+text
 Backend runs on http://localhost:5000
 
-4. Start Frontend
+### 4. Start Frontend
 cd frontend
 npm start
 
-
+text
 Frontend runs on http://localhost:3000
 
-Usage
-Upload CV
+## Usage
 
-Click Drag & Drop CV or select a file.
+### Upload CV
+1. Click **Drag & Drop CV** or select a file.
+2. Supported formats: **PDF, DOCX**.
+3. CV is parsed and ATS score is displayed.
+4. Multiple phone numbers are separated automatically.
+5. Loading animation shows processing progress.
 
-Supported formats: PDF, DOCX.
+### View Parsed Data
+- **Basic Info:** Name, Email, Phone
+- **Education, Experience, Projects, Skills, Certifications**
+- **Highlights:** Strong points detected
+- **Needs Improvement:** Suggestions for ATS improvement
+- **ATS Score:** Out of 100
 
-CV is parsed and ATS score is displayed.
+### Match Job Description
+1. Paste JD into the textarea.
+2. Click **Match Job Description**.
+3. JD Match Score appears after processing.
+4. Loading animation shows progress.
 
-Multiple phone numbers are separated automatically.
+## API Endpoints
 
-Loading animation shows processing progress.
-
-View Parsed Data
-
-Basic Info: Name, Email, Phone
-
-Education, Experience, Projects, Skills, Certifications
-
-Highlights: Strong points detected
-
-Needs Improvement: Suggestions for ATS improvement
-
-ATS Score: Out of 100
-
-Match Job Description
-
-Paste JD into the textarea.
-
-Click Match Job Description.
-
-JD Match Score appears after processing.
-
-Loading animation shows progress.
-
-API Endpoints
-1. Upload CV
-
-POST /api/cv/upload
-Form data: file
+### 1. Upload CV
+**POST** `/api/cv/upload`  
+Form data: `file`  
 Response:
-
 {
-  "parsedData": { ... },
-  "uploadedCV": "filename.pdf",
-  "excelFile": "Candidate_parsed.xlsx",
-  "rawText": "Full text extracted from CV"
+"parsedData": { ... },
+"uploadedCV": "filename.pdf",
+"excelFile": "Candidate_parsed.xlsx",
+"rawText": "Full text extracted from CV"
 }
 
-2. Check ATS
+text
 
-POST /api/cv/ats
-Body: { "rawText": "text from CV" }
+### 2. Check ATS
+**POST** `/api/cv/ats`  
+Body: `{ "rawText": "text from CV" }`  
 Response:
-
 {
-  "score": 60,
-  "issues": ["Add measurable achievements, tools, certifications, and role-specific keywords"]
+"score": 60,
+"issues": ["Add measurable achievements, tools, certifications, and role-specific keywords"]
 }
 
-3. Match Job Description
+text
 
-POST /api/cv/match-jd
-Body: { "rawText": "text from CV", "jobDescription": "JD text" }
+### 3. Match Job Description
+**POST** `/api/cv/match-jd`  
+Body: `{ "rawText": "text from CV", "jobDescription": "JD text" }`  
 Response:
-
 {
-  "matchPercentage": 75,
-  "matchedSkills": ["Marketing", "Sales", "Leadership"],
-  "missingSkills": ["Python", "AWS"]
+"matchPercentage": 75,
+"matchedSkills": ["Marketing", "Sales", "Leadership"],
+"missingSkills": ["Python", "AWS"]
 }
 
-Project Structure
+text
+
+## Project Structure
 cv-ats-system/
 │
 ├─ backend/
-│  ├─ controllers/
-│  │  └─ cv.controller.js
-│  ├─ services/
-│  │  ├─ aiparser.service.js
-│  │  ├─ ats.service.js
-│  │  ├─ jdMatch.service.js
-│  │  └─ ocrParser.service.js
-│  ├─ uploads/
-│  │  ├─ cv/
-│  │  └─ excel/
-│  ├─ routes/
-│  │  └─ cv.routes.js
-│  └─ server.js
+│ ├─ controllers/
+│ │ └─ cv.controller.js
+│ ├─ services/
+│ │ ├─ aiparser.service.js
+│ │ ├─ ats.service.js
+│ │ ├─ jdMatch.service.js
+│ │ └─ ocrParser.service.js
+│ ├─ uploads/
+│ │ ├─ cv/
+│ │ └─ excel/
+│ ├─ routes/
+│ │ └─ cv.routes.js
+│ └─ server.js
 │
 ├─ frontend/
-│  ├─ src/
-│  │  ├─ components/
-│  │  │  └─ UploadCV.jsx
-│  │  ├─ api.js
-│  │  └─ App.jsx
-│  └─ package.json
+│ ├─ src/
+│ │ ├─ components/
+│ │ │ └─ UploadCV.jsx
+│ │ ├─ api.js
+│ │ └─ App.jsx
+│ └─ package.json
 │
 └─ screenshots/
-    ├─ upload-cv.png
-    ├─ parsed-cv.png
-    └─ jd-match.png
+├─ upload-cv.png
+├─ parsed-cv.png
+└─ jd-match.png
 
-Troubleshooting
+text
 
-CV upload fails: Ensure backend is running on http://localhost:5000
+## Troubleshooting
+- **CV upload fails:** Ensure backend is running on http://localhost:5000
+- **JD Match returns 0:** Upload CV first; ensure JD contains relevant keywords
+- **Loading animation not showing:** Check loadingCV and loadingJD states in App.jsx
+- **Phone numbers combined:** Make sure regex `\+?\d[\d\s]{6,}/g` correctly matches numbers in App.jsx
 
-JD Match returns 0: Upload CV first; ensure JD contains relevant keywords
+## Future Enhancements
+- Multi-language CV parsing
+- Real-time ATS suggestions while editing CV
+- User accounts to save CV history
+- Improved AI parsing for complex CV layouts
+- Integration with LinkedIn for auto-import of CV data
 
-Loading animation not showing: Check loadingCV and loadingJD states in App.jsx
-
-Future Enhancements
-
-Multi-language CV parsing
-
-Real-time ATS suggestions while editing CV
-
-User accounts to save CV history
-
-Improved AI parsing for complex CV layouts
-
-License
-
+## License
 MIT License © 2025 Sandeep992299
-
-
----
-
-✅ **Next Steps for GitHub:**
-
-1. Save this as `README.md` in your project root.
-2. Make a `screenshots/` folder and add your images.
-3. Commit and push to GitHub:
-
-```bash
-git add README.md screenshots/
-git commit -m "Add detailed README with screenshots"
-git push origin main
